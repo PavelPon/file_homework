@@ -18,30 +18,24 @@ public class PathFile {
             File[] list = filePath.listFiles();
             String listString = "";
             for (File item : list) {
-                if (item.isDirectory()){
-                    pathFile(item.getAbsolutePath());
-                    listString += item + "\n";
-                    if (list == null)
-                        return listString;
-                }else {
+
                 listString += item + "\n";
                 if (list == null)
                     return listString;}
-            }
 
-//            try {
-//
-//                for (File itemsToFile : list) {
-//                    if (itemsToFile.isDirectory()) {
-//                        pathFile(itemsToFile.getAbsolutePath());
-//                        System.out.println("Папка:" + itemsToFile.getPath());
-//                    } else {
-//                        System.out.println("Файл:" + itemsToFile.getPath());
-//                    }
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-            //}
+            try {
+
+                for (File itemsToFile : list) {
+                    if (itemsToFile.isDirectory()) {
+                        pathFile(itemsToFile.getAbsolutePath());
+                        System.out.println("Папка:" + itemsToFile.getPath());
+                    } else {
+                        System.out.println("Файл:" + itemsToFile.getPath());
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             FileWriter writer = null;
             try {
                 writer = new FileWriter("//Users//pavelponomarev//Files//Dir2//File2.txt");
@@ -54,7 +48,6 @@ public class PathFile {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return path;
     }
 }
